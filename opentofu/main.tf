@@ -8,8 +8,8 @@ terraform {
 }
 
 provider "aws" {
-  access_key = "test"
-  secret_key = "test"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
   region     = "us-east-1"
 }
 
@@ -20,21 +20,6 @@ provider "random" {
 resource "random_pet" "random_name" {
   length    = 2
   separator = "-"
-}
-
-variable "aws_region" {
-  description = "AWS region"
-  default     = "us-east-1"
-}
-
-variable "account_id" {
-  description = "AWS Account ID"
-  default     = "YOUR_AWS_ACCOUNT_NUMBER"
-}
-
-variable "sns_topic_name" {
-  description = "SNS Topic Name"
-  default     = "update_shipment_picture_topic"
 }
 
 # S3 bucket
